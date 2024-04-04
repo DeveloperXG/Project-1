@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/style.css" />
+  <title>Penalties | Toes Lib</title>
+</head>
+
+<body>
+  <header>
+    <h1>Unpaid Penalties</h1>
+    {% include 'header.html' %}
+  </header>
+  <main>
+    {% if penalties %}
+    <div class="queryList">
+      <div class="queryHeader">
+        <div class="queryCell">Penalty ID</div>
+        <div class="queryCell">Borrow ID</div>
+        <div class="queryCell">Amount</div>
+        <div class="queryCell">Paid Amount</div>
+        <div class="queryCell"></div>
+      </div>
+      {% for penalty in penalties %}
+      <div data-balance="{{ penalty.amountLeft }}" data-pid="{{ penalty.id }}" class="queryTuple">
+        <div class="queryCell">{{ penalty.id }}</div>
+        <div class="queryCell">{{ penalty.borrowID }}</div>
+        <div class="queryCell">${{ penalty.fee }}</div>
+        <div class="queryCell">${{ penalty.paid }}</div>
+        <button class="penalty-btn">Pay Penalty</button>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>You have no unpaid penalties!</p>
+    {% endif %}
+  </main>
+  <section id="popup-form-page">
+    <form id="return-form" onkeydown="return event.key != 'Enter';">
+      <label for="payment">Due:</label>
+      <input type="number" min="1" step="any" name="payment" id="payment" required>
+      <br />
+
+      <button id="cancel-btn" type="reset">Cancel</button>
+      <button type="submit">Pay</button>
+    </form>
+  </section>
+  <script src="../static/penalty.js"></script>
+</body>
+
+</html>

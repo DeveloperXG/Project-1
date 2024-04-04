@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../static/style.css" />
+		<title>Return | Toes Lib</title>
+	</head>
+	<body>
+		<header>
+			<h1>Current Borrowings</h1>
+			{% include 'header.html' %}
+		</header>
+		<main id="currentBorrowings">
+			{% if borrowings %}
+				<section class="queryList">
+					<div class="queryHeader">
+						<div class="queryCell">ID</div>
+						<div class="queryCell">Book title</div>
+						<div class="queryCell">Borrow Date</div>
+						<div class="queryCell">Return Deadline</div>
+						<div class="queryCell"></div>
+					</div>
+					{% for item in borrowings %}
+						<div class="queryTuple">
+							<div class="queryCell" data-bid="{{ item.id }}">{{ item.id }}</div>
+							<div class="queryCell">{{ item.bookTitle }}</div>
+							<div class="queryCell">{{ item.borrowDate }}</div>
+							<div class="queryCell past-due">{{ item.dueDate }}</div>
+							<button class="return-btn">Return</button>
+						</div>
+					{% endfor %}
+				</section>
+			{%else %}
+			<div>
+				<p>You currently have no borrowings!</p> 
+				<br />
+				<a style="display: block; text-align: center;" href="/search">Borrow a book</a>
+			</div>
+			{% endif %}
+		</main>
+		<section id="popup-form-page">
+			<form id="return-form" action="/return" method="POST" onkeydown="return event.key != 'Enter';">
+				<label for="review">Enter review:</label>
+				<input type="text" name="rtext" id="review" required/>
+				<br />
+				<label for="rating">Rating:</label>
+				<input type="number" name="rating" id="rating" value="1" max="5" min="1" step="1" required/>
+			<br>
+
+			<button id="cancel-btn">No Thanks</button>
+			<button type="submit">Okay</button>
+		</form>
+		</section>
+		<script src="../static/return.js"></script>
+	</body>
+</html>

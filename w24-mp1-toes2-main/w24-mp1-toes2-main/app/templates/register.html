@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../static/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Login | Toes Lib</title>
+	</head>
+	<body>
+		<header>
+			<h1>Toes Lib</h1>
+		</header>
+		<main>
+			<section id="sign-up-page">
+				<form id="sign-up-form" action="/profile" method="POST" autocomplete="off">
+					<!-- error banner -->
+					{% if request.args.get("error") %}
+					<div class="error-banner">
+						<img src="../static/images/alert.png" alt="" />
+						<p class="error-msg">{{ request.args.get("error") }}</p>
+					</div>
+					{% endif %}
+
+					<div>
+						<label for="sign-up-email">Email:</label>
+						<input type="email" name="email" id="sign-up-email" required />
+					</div>
+
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" required />
+					</div>
+
+					<div>
+						<label for="birth-year">Birth Year:</label>
+						<input
+							type="number"
+							name="byear"
+							id="birth-year"
+							min="1900"
+							max="2024"
+							required
+						/>
+					</div>
+
+					<div>
+						<label for="faculty-name">Faculty:</label>
+						<select name="faculty" id="faculty-name" required>
+							<option value="" selected disabled hidden>Choose Faculty</option>
+							<option value="CS">Computing Science</option>
+							<option value="Economics">Economics</option>
+							<option value="English">English</option>
+							<option value="Math">Math</option>
+							<option value="Business">Business</option>
+							<option value="Psychology">Psychology</option>
+							<option value="Physiology">Physiology</option>
+							<option value="Kinesiology">Kinesiology</option>
+							<option value="Engineering">Engineering</option>
+							<option value="Physics">Physics</option>
+							<option value="Chemistry">Chemistry</option>
+							<option value="Biology">Biology</option>
+						</select>
+					</div>
+
+          <div>
+					<label for="sign-up-passwd">Password:</label>
+					<input
+						type="password"
+						name="passwd"
+						id="sign-up-passwd"
+						minlength="8"
+						required
+					/>
+          </div>
+
+					<button type="submit">Register</button>
+				</form>
+				<div>
+					<span id="change-login-button"
+						><a href="/login">Already have an account?</a></span
+					>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

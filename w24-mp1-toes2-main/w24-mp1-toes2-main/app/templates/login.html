@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="../static/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+	<title>Login | Toes Lib</title>
+</head>
+
+<body>
+	<header>
+		<h1>Toes Lib</h1>
+	</header>
+	<main>
+		<section id="log-in-page">
+			<form id="log-in-form" action="/profile" method="post" autocomplete="off">
+				<!-- error banner -->
+				{% if request.args.get("error") %}
+				<div class="error-banner">
+					<img src="../static/images/alert.png" alt="" />
+					<p class="error-msg">{{ request.args.get("error") }}</p>
+				</div>
+				{% endif %}
+
+				<div>
+					<label for="log-in-email">Email: </label>
+					<input type="email" name="email" id="log-in-email" required />
+				</div>
+
+				<div>
+					<label for="log-in-passwd">Password: </label>
+					<input type="password" name="passwd" id="log-in-passwd" minlength="8" required />
+				</div>
+
+				<button type="submit">Login</button>
+			</form>
+			<div>
+				<span id="change-login-button"><a href="/register">Don't have an account?</a></span>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

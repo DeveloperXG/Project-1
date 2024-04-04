@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  font-size: 15px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 10px 0 50px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+button {
+  background-color: white;
+  border: 1px solid black;
+  width: 100px;
+}
+
+select, input, button {
+  height: 35px;
+  margin: 10px 0;
+}
+
+select {
+  width: 70%;
+}
+
+input {
+  width: 70%;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#log-in-page button,
+#sign-up-page button {
+  width: 100%;
+}
+
+
+/* Profile Page */
+.profile {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0 50px #ccc;
+  max-width: 80%;
+}
+
+.profile-image {
+  width: 20%;
+}
+
+.profile-image img {
+  width: 100%;
+  max-width: 200px;
+  border: 5px solid black;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.profile-content {
+  width: 70%;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.profile-row.lists {
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: space-between;
+}
+
+.profile-content .name {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.profile-content .birthyear {
+  font-size: 1.25rem;
+}
+
+.profile-content .email {
+  color: darkblue;
+}
+
+.profile-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.profile-list-item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.list-title {
+  color: rgb(81, 81, 81);
+}
+
+.list-value {
+  font-size: 2rem;
+}
+
+
+
+
+
+.disabled-btn {
+  color: gray;
+  border-color: lightgray;
+  cursor: not-allowed;
+}
+
+button:hover:not(.disabled-btn) {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+nav li {
+  list-style: none;
+  margin: 0 5px;
+  color: darkblue;
+  font-family: inherit;
+}
+
+nav li a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+section {
+  min-width: 50%;
+  margin: 0 auto;
+}
+
+#log-in-form > div:not(.error-banner),
+#sign-up-form > div:not(.error-banner) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#change-login-button {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#currentBorrowings {
+  margin: auto;
+  display: flexbox;
+  align-items: center;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+th, td {
+  padding-right: 100px;
+}
+
+tr {
+  font-size: 20px;
+}
+
+.error-banner {
+  /* display: none; */
+  color: darkred;
+  background-color: lightpink;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.error-banner img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.error-msg {
+  font-size: .85em;
+}
+/* .show-error  */
+/* .error-banner { */
+/* } */
+
+/* Search Page */
+.search-page {
+  width: 100%;
+}
+
+#search-form {
+  margin-bottom: 100px;
+}
+
+#searchBox {
+  display: block;
+  margin: 0 auto;
+  min-width: 200px;
+  width: 50%;
+  font-size: 2rem;
+  border: 1px solid grey;
+  border-radius: 50px;
+  padding: 30px;
+}
+
+.queryList {
+  width: 80%;
+}
+
+.queryHeader {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.queryTuple, .queryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.queryCell {
+  width: 16%;
+  max-height: 40px;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  text-wrap: nowrap;
+  scrollbar-width: thin;
+}
+
+/* Return page */
+
+.past-due {
+  color: red;
+}
+
+#popup-form-page {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+#popup-form-page form {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}

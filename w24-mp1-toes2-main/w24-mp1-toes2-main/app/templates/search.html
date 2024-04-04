@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Search | Toes Lib</title>
+</head>
+<body>
+  <header>
+    <h1>Search Books</h1>
+    {% include 'header.html' %}
+  </header>
+  <main>
+    <div class="search-page">
+      <form id="search-form" action="/search" method="get">
+        <input type="text" name="query" id="searchBox"
+		  		value="{{ request.args.get("query", "") }}"
+				placeholder="Type here...">
+        <input type="submit" value="" hidden>
+      </form>
+
+	<section class="queryList">
+		{% for item in items %}
+			{% set rating = item.avgRating %}
+			<div class="queryTuple">
+			<div class="queryCell">{{ item.id }}</div>
+			<div class="queryCell">{{ item.title }}</div>
+			<div class="queryCell">{{ item.author }}</div>
+			<div class="queryCell">{{ item.publishedYear }}</div>
+			<div class="queryCell">{% if rating -%}{{ rating }}{% else -%}No rating{%- endif %}</div>
+			<button data-id="{{ item.id }}"
+					type="{% if not item.borrowed -%} submit {%- else -%} button {%- endif %}"
+					class="borrow-btn {%- if item.borrowed %} disabled-btn {%- endif %}">Borrow</button>
+			</div>
+		{% else %}
+			<p>Nothing Found</p>
+		{% endfor %}
+		<form>
+			<input name="query" value="{{ request.args.get('query', '') }}" style="display: none;">
+			<button name="limit" value="{{ request.args.get('limit', 5) | int + 5 }}">Show More</button>
+		</form>
+	</section>
+    </div>
+  </main>
+  <script src="../static/search.js"></script>
+</body>
+</html>

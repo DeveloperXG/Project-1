@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href=".././static/style.css" />
+	<title>Profile | Toes Lib</title>
+</head>
+
+<body>
+	<header>
+		<h1>Profile</h1>
+		{% include 'header.html' %}
+	</header>
+	<main>
+		<section class="profile">
+			<div class="profile-image">
+				<img src="../static/images/profile.png" alt="">
+			</div>
+			<div class="profile-content">
+				<div class="profile-row">
+					<div class="name">{{ profile.member.name }}</div>
+					<div class="birthyear">{{ profile.member.birthYear }}</div>
+				</div>
+				<div class="profile-row">
+					<div class="email">{{ profile.member.email }}</div>
+				</div>
+				<div class="profile-row lists">
+					<div class="profile-list">
+						<div class="profile-list-item">
+							<div class="list-title">Total Borrowings</div>
+							<div class="list-value">{{ profile.borrowCounts.total }}</div>
+						</div>
+						<div class="profile-list-item">
+							<div class="list-title">Previous Borrowings</div>
+							<div class="list-value">{{ profile.borrowCounts.returned }}</div>
+						</div>
+						<div class="profile-list-item">
+							<div class="list-title">Current Borrowings</div>
+							<div class="list-value">{{ profile.borrowCounts.unreturned }}</div>
+						</div>
+					</div>
+					<div class="profile-list">
+						<div class="profile-list-item">
+							<div class="list-title">Overdue Borrowings</div>
+							<div class="list-value">{{ profile.borrowCounts.overdue }}</div>
+						</div>
+						<div class="profile-list-item">
+							<div class="list-title">Unpaid</div>
+							<div class="list-value">{{ profile.unpaidPenaltyCount }}</div>
+						</div>
+						<div class="profile-list-item">
+							<div class="list-title">Total Debt</div>
+							<div class="list-value">${{ profile.totalDebt }}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>
