@@ -1,10 +1,10 @@
 # Project-1
 
-### Group member names and ccids (4 members)  
-1. oorimolo, Tomiwa Orimoloye
-2. odelana, Obaloluwa Odelana
-3. eojeifo, Excel Ojeifo
-4. swcarson, Sean Carson
+### Group member names (4 members)  
+1. Tomiwa Orimoloye
+2. Obaloluwa Odelana
+3. Excel Ojeifo
+4. Sean Carson
 
 # Group work break-down strategy
 - oorimolo: User Interface (HTML, CSS & JS)
